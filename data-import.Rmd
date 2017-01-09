@@ -1,0 +1,92 @@
+---
+title: "data_analysis"
+author: "Bonnie"
+date: "December 26, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+setwd("C:/Users/Bonnie Quach/Documents/R/R_portfolio/2016_12_22_flight_graph_shiny/")
+
+```
+
+Import the databases
+```{r import dataset}
+flights_2008 <- read.csv("2008.csv.bz2")
+flights_2007 <- read.csv("2007.csv.bz2")
+flights_2006 <- read.csv("2006.csv.bz2")
+flights_2005 <- read.csv("2005.csv.bz2")
+flights_2004 <- read.csv("2004.csv.bz2")
+flights_2003 <- read.csv("2003.csv.bz2")
+flights_2002 <- read.csv("2002.csv.bz2")
+flights_2001 <- read.csv("2001.csv.bz2")
+flights_2000 <- read.csv("2000.csv.bz2")
+flights_1999 <- read.csv("1999.csv.bz2")
+flights_1998 <- read.csv("1998.csv.bz2")
+flights_1997 <- read.csv("1997.csv.bz2")
+flights_1996 <- read.csv("1996.csv.bz2")
+flights_1995 <- read.csv("1995.csv.bz2")
+flights_1994 <- read.csv("1994.csv.bz2")
+flights_1993 <- read.csv("1993.csv.bz2")
+flights_1992 <- read.csv("1992.csv.bz2")
+flights_1991 <- read.csv("1991.csv.bz2")
+flights_1990 <- read.csv("1990.csv.bz2")
+flights_1989 <- read.csv("1989.csv.bz2")
+flights_1988 <- read.csv("1988.csv.bz2")
+flights_1987 <- read.csv("1987.csv.bz2")
+```
+
+Selecting only a few columns so it doesn't use as much memory
+```{r flights dataset, echo=FALSE}
+flights_2008 <- flights_2008[c(1, 2, 15)]
+flights_2007 <- flights_2007[c(1, 2, 15)]
+flights_2006 <- flights_2006[c(1, 2, 15)]
+flights_2005 <- flights_2005[c(1, 2, 15)]
+flights_2004 <- flights_2004[c(1, 2, 15)]
+flights_2003 <- flights_2003[c(1, 2, 15)]
+flights_2002 <- flights_2002[c(1, 2, 15)]
+flights_2001 <- flights_2001[c(1, 2, 15)]
+flights_2000 <- flights_2000[c(1, 2, 15)]
+flights_1999 <- flights_1999[c(1, 2, 15)]
+flights_1998 <- flights_1998[c(1, 2, 15)]
+flights_1997 <- flights_1997[c(1, 2, 15)]
+flights_1996 <- flights_1996[c(1, 2, 15)]
+flights_1995 <- flights_1995[c(1, 2, 15)]
+flights_1994 <- flights_1994[c(1, 2, 15)]
+flights_1993 <- flights_1993[c(1, 2, 15)]
+flights_1992 <- flights_1992[c(1, 2, 15)]
+flights_1991 <- flights_1991[c(1, 2, 15)]
+flights_1990 <- flights_1990[c(1, 2, 15)]
+flights_1989 <- flights_1989[c(1, 2, 15)]
+flights_1988 <- flights_1988[c(1, 2, 15)]
+flights_1987 <- flights_1987[c(1, 2, 15)]
+```
+
+Remove rows containing NA's
+``` {r}
+flights_2008 <- na.omit(flights_2008)
+flights_2007 <- na.omit(flights_2007)
+flights_2006 <- na.omit(flights_2006)
+flights_2005 <- na.omit(flights_2005)
+flights_2004 <- na.omit(flights_2004)
+flights_2003 <- na.omit(flights_2003)
+flights_2002 <- na.omit(flights_2002)
+flights_2001 <- na.omit(flights_2001)
+flights_2000 <- na.omit(flights_2000)
+flights_1999 <- na.omit(flights_1999)
+flights_1998 <- na.omit(flights_1998)
+flights_1997 <- na.omit(flights_1997)
+flights_1996 <- na.omit(flights_1996)
+flights_1995 <- na.omit(flights_1995)
+flights_1994 <- na.omit(flights_1994)
+flights_1993 <- na.omit(flights_1993)
+flights_1992 <- na.omit(flights_1992)
+flights_1991 <- na.omit(flights_1991)
+flights_1990 <- na.omit(flights_1990)
+flights_1989 <- na.omit(flights_1989)
+flights_1988 <- na.omit(flights_1988)
+flights_1987 <- na.omit(flights_1987)
+```
+
+Save them as RDS files
