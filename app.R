@@ -1,3 +1,4 @@
+setwd("C:/Users/Bonnie Quach/Documents/R/R_portfolio/2016_12_22_flight_graph_shiny/arrival_delay_yr/")
 library(shiny)
 library(ggplot2)
 library(dplyr)
@@ -5,6 +6,7 @@ library(cowplot)
 library(scales)
 library(DT)
 
+# I put them into individual files just to speed it up instead of subsetting every time you adjust the slider. Takes long enough, so just wanted to make it faster.
 flights_2008 <- readRDS("flights_2008.RDS")
 flights_2007 <- readRDS("flights_2007.RDS")
 flights_2006 <- readRDS("flights_2006.RDS")
