@@ -4,6 +4,28 @@ library(dplyr)
 library(cowplot)
 library(scales)
 library(DT)
+flights_2008 <- readRDS("flights_2008.RDS")
+flights_2007 <- readRDS("flights_2007.RDS")
+flights_2006 <- readRDS("flights_2006.RDS")
+flights_2005 <- readRDS("flights_2005.RDS")
+flights_2004 <- readRDS("flights_2004.RDS")
+flights_2003 <- readRDS("flights_2003.RDS")
+flights_2002 <- readRDS("flights_2002.RDS")
+flights_2001 <- readRDS("flights_2001.RDS")
+flights_2000 <- readRDS("flights_2000.RDS")
+flights_1999 <- readRDS("flights_1999.RDS")
+flights_1998 <- readRDS("flights_1998.RDS")
+flights_1997 <- readRDS("flights_1997.RDS")
+flights_1996 <- readRDS("flights_1996.RDS")
+flights_1995 <- readRDS("flights_1995.RDS")
+flights_1994 <- readRDS("flights_1994.RDS")
+flights_1993 <- readRDS("flights_1993.RDS")
+flights_1992 <- readRDS("flights_1992.RDS")
+flights_1991 <- readRDS("flights_1991.RDS")
+flights_1990 <- readRDS("flights_1990.RDS")
+flights_1989 <- readRDS("flights_1989.RDS")
+flights_1988 <- readRDS("flights_1988.RDS")
+flights_1987 <- readRDS("flights_1987.RDS")
 
 ui <- fluidPage( 
   
@@ -104,7 +126,8 @@ server <- shinyServer(function(input, output) {
       flights_year <- flights_1987
     }
     
-    distPlot<- ggplot(flights_year, aes(x = ArrDelay)) + geom_histogram(aes(y=..count../sum(..count..)), binwidth = 15, alpha = 0.3, color = "blue", fill = "blue") + xlim(-50, 210) + scale_y_continuous(labels=percent) + labs(x = "Arrival Delay (minutes)", y = "Percent of Flights") + title("Arrival Delay by Year")
+    distPlot<- ggplot(flights_year, aes(x = ArrDelay)) 
+    distPlot<- distPlot + geom_histogram(aes(y=..count../sum(..count..)), binwidth = 15, alpha = 0.3, color = "blue", fill = "blue") + xlim(-50, 210) + scale_y_continuous(labels=percent) + labs(x = "Arrival Delay (minutes)", y = "Percent of Flights") + ggtitle("Arrival Delay by Year")
     
     print(distPlot)
     
@@ -180,7 +203,8 @@ server <- shinyServer(function(input, output) {
     
     #fit <- fitdist(flights_year$ArrDelay, "norm")
     flights_year$Month <- factor(flights_year$Month, levels = c(1:12))
-    distPlot_month <- ggplot(flights_year, aes(x=ArrDelay)) + geom_density(aes(group = Month, color = Month, fill = Month), alpha = 0.3, binwidth = 15) + xlim(-50, 50) + scale_y_continuous(labels=percent) + labs(x = "Arrival Delay (minutes)", y = "Density") + title("Arrival Delay by Month")
+    distPlot_month <- ggplot(flights_year, aes(x=ArrDelay)) 
+    distPlot_month <- distPlot_month + geom_density(aes(group = Month, color = Month, fill = Month), alpha = 0.3, binwidth = 15) + xlim(-50, 50) + scale_y_continuous(labels=percent) + labs(x = "Arrival Delay (minutes)", y = "Density") + ggtitle("Arrival Delay by Month")
     print(distPlot_month)
     
   })
